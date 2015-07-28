@@ -3,7 +3,7 @@
 
 
 angular.module( 'map' ).directive( "mapstest", [ mapstest ]);
-mapstestController.$inject = [ "$scope", "value_districts" ];
+mapstestController.$inject = [ "$scope", "value_districts", "googlemaps" ];
 
 
 
