@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="map">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Test maps</h1>
+	<mapstest></mapstest>
+
+
+
+
+
+
+
+	<!-- APP TEMPLATES -->
+
+	<script type="text/ng-template" id="/templates/mapstest.html">
+		<div ng-repeat="(districtName, districtData) in districts">
+			<h2>{{ districtName }}</h2>
+
+			<ol>
+				<li ng-repeat="point in districtData[0].points">
+					<b>long: </b> {{ point.D }}
+					<br>
+					<b>lat: </b>  {{ point.k }}
+				</li>
+			</ol>
+		</div>
+
+		<h1>{{ districts }}</h1>
+	</script>
+
+	<!-- END - - APP TEMPLATES -->
+
+
+
+	<!-- APP SCRIPTS -->
+
+	<!-- Initialise the app -->
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/app.js"></script>
+
+	<!-- values	-->
+	<script src="scripts/values/districts.js"></script>
+
+	<!-- directives	-->
+	<script src="scripts/directives/mapstest.js"></script>
+
+	<!-- END - - APP SCRIPTS -->
+</body>
+</html>
