@@ -7,20 +7,19 @@ for ( var i = 1; i < 29; ++i ) {
 }
 
 function doStuff ( i ) {
-	var src = "https://www.99.co/-/get-district-polygons?districts=" + i;
+	var ii = pad(i);
+	var src = "https://www.99.co/-/get-district-polygons?districts=" + ii;
 	var httpRequest = new XMLHttpRequest();
 
 	httpRequest.onreadystatechange = getPointsAndAddItToTheDistrics;
 	httpRequest.open( 'GET', src, true );
 	httpRequest.send( null );
 
-	console.log( 'Requesting: ' + src );
-
 
 	//	FUNCTIONS
 	function getPointsAndAddItToTheDistrics ( data ) {
 		if (httpRequest.readyState === 4) {
-			districts[ pad(i) ] = httpRequest;
+			eval( 'districts[ ii ] = ' + httpRequest.responseText );
 		}
 	}
 }
