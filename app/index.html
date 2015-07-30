@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="map">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="styles/resets.css">
+</head>
+<body>
+	<activitymap></activitymap>
+
+	<mapstest></mapstest>
+
+
+
+
+
+	<!-- GOOGLE MAPS -->
+	<script src="scripts/googlemaps.js"></script>
+	<!-- END - - GOOGLE MAPS -->
+
+
+
+	<!-- APP TEMPLATES -->
+	<!-- Activity map template -->
+	<script type="text/ng-template" id="/templates/activitymap.html">
+		<h1>Activity map</h1>
+		<div style="position:relative;width:100%;padding-bottom:66%;">
+			<div id="map-canvas"
+				 style="position:absolute;width:100%;height:100%;"></div>
+		</div>
+
+		<ul>
+			<li ng-repeat="polygon in districtsCoords" style="padding-bottom: 50px;">
+				<span ng-repeat="coords in polygon" >| {{ coords.A }}:{{ coords.F }} |</span>
+			</li>
+		</ul>
+	</script>
+
+	<!-- Map test template -->
+	<script type="text/ng-template" id="/templates/mapstest.html">
+		<div ng-repeat="(districtName, districtData) in districts">
+			<h2>{{ districtName }}</h2>
+
+			<ol>
+				<li ng-repeat="point in districtData[0].points">
+					<b>long: </b> {{ point.D }}
+					<br>
+					<b>lat: </b>  {{ point.k }}
+				</li>
+			</ol>
+		</div>
+
+		<!--
+		<p>{{ districts }}</p>
+		-->
+	</script>
+	<!-- END - - APP TEMPLATES -->
+
+
+
+	<!-- APP SCRIPTS -->
+	<!-- Initialise the app -->
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/app.js"></script>
+
+	<!-- values	-->
+	<script src="scripts/values/districts.js"></script>
+	<script src="scripts/values/googlemaps.js"></script>
+
+	<!-- directives	-->
+	<script src="scripts/directives/activitymap.js"></script>
+	<script src="scripts/directives/mapstest.js"></script>
+	<!-- END - - APP SCRIPTS -->
+</body>
+</html>
