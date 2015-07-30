@@ -11,7 +11,8 @@ function activitymap () {
 	return {
 		restrict: 'E',
 		templateUrl: '/templates/activitymap.html',
-		controller: activitymapController
+		controller: activitymapController,
+		replace: true
 	}
 }
 
@@ -34,8 +35,6 @@ function activitymapController ( $scope, googlemaps, value_districts ) {
 	for ( districtName in value_districts ) {
 		addDistrict( value_districts[ districtName ][0].points, districtName );
 	}
-
-	console.log( $scope.districtsCoords );
 
 
 

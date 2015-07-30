@@ -2,10 +2,12 @@
 <html lang="en" ng-app="map">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bean and Beer</title>
 
 	<!-- Global -->
 	<link rel="stylesheet" href="styles/resets.css">
+	<link rel="stylesheet" href="styles/elements.css">
 	<link rel="stylesheet" href="styles/fonts.css">
 
 	<!-- Sructure -->
@@ -19,10 +21,10 @@
 </head>
 <body>
 	<!--
-	<activitymap></activitymap>
 
-	<mapstest></mapstest>
 	-->
+
+
 
 	<div class="body">
 		<header class="headContainer">
@@ -30,76 +32,18 @@
 		</header>
 
 		<div class="mapContainer">
-			<div class="map"></div>
+			<activitymap></activitymap>
 		</div>
 
 		<div class="listContainer">
 			<div class="filterContainer">
-				<h2 class="filterTitle f-title">Filters</h2>
+				<h2 class="filterTitle f-title">Regions</h2>
 				<div class="filterListContainer">
-					<ul class="filterList">
-						<li class="filterList__item">1</li>
-						<li class="filterList__item">2</li>
-						<li class="filterList__item">3</li>
-						<li class="filterList__item">4</li>
-						<li class="filterList__item">5</li>
-						<li class="filterList__item">6</li>
-						<li class="filterList__item">7</li>
-						<li class="filterList__item">8</li>
-						<li class="filterList__item">9</li>
-						<li class="filterList__item">10</li>
-						<li class="filterList__item">11</li>
-						<li class="filterList__item">12</li>
-						<li class="filterList__item">13</li>
-						<li class="filterList__item">14</li>
-						<li class="filterList__item">15</li>
-						<li class="filterList__item">16</li>
-						<li class="filterList__item">17</li>
-						<li class="filterList__item">18</li>
-						<li class="filterList__item">19</li>
-						<li class="filterList__item">20</li>
-						<li class="filterList__item">21</li>
-						<li class="filterList__item">22</li>
-						<li class="filterList__item">23</li>
-						<li class="filterList__item">24</li>
-						<li class="filterList__item">25</li>
-						<li class="filterList__item">26</li>
-						<li class="filterList__item">27</li>
-						<li class="filterList__item">28</li>
-					</ul>
+					<regions></regions>
 				</div>
 			</div>
 
-			<ul class="placeList">
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-				<li class="placeList__item"></li>
-			</ul>
+			<results></results>
 		</div>
 	</div>
 
@@ -116,36 +60,32 @@
 	<!-- APP TEMPLATES -->
 	<!-- Activity map template -->
 	<script type="text/ng-template" id="/templates/activitymap.html">
-		<h1>Activity map</h1>
-		<div style="position:relative;width:100%;padding-bottom:66%;">
-			<div id="map-canvas"
-				 style="position:absolute;width:100%;height:100%;"></div>
-		</div>
+		<div class="map" id="map-canvas"></div>
+	</script>
+	<!--
+	<ul>
+		<li ng-repeat="polygon in districtsCoords" style="padding-bottom: 50px;">
+			<span ng-repeat="coords in polygon" >| {{ coords.A }}:{{ coords.F }} |</span>
+		</li>
+	</ul>
+	-->
 
-		<ul>
-			<li ng-repeat="polygon in districtsCoords" style="padding-bottom: 50px;">
-				<span ng-repeat="coords in polygon" >| {{ coords.A }}:{{ coords.F }} |</span>
+	<!-- Regions filter -->
+	<script type="text/ng-template" id="/templates/regions.html">
+		<ul class="filterList">
+			<li class="filterList__item"
+			    ng-repeat="(districtName, districtData) in districts">
+				{{ districtName }}
 			</li>
 		</ul>
 	</script>
 
-	<!-- Map test template -->
-	<script type="text/ng-template" id="/templates/mapstest.html">
-		<div ng-repeat="(districtName, districtData) in districts">
-			<h2>{{ districtName }}</h2>
-
-			<ol>
-				<li ng-repeat="point in districtData[0].points">
-					<b>long: </b> {{ point.D }}
-					<br>
-					<b>lat: </b>  {{ point.k }}
-				</li>
-			</ol>
-		</div>
-
-		<!--
-		<p>{{ districts }}</p>
-		-->
+	<!-- Reults list -->
+	<script type="text/ng-template" id="/templates/results.html">
+		<ul class="placeList">
+			<li class="placeList__item"
+		        ng-repeat="result in results"></li>
+		</ul>
 	</script>
 	<!-- END - - APP TEMPLATES -->
 
@@ -162,7 +102,8 @@
 
 	<!-- directives	-->
 	<script src="scripts/directives/activitymap.js"></script>
-	<script src="scripts/directives/mapstest.js"></script>
+	<script src="scripts/directives/regions.js"></script>
+	<script src="scripts/directives/results.js"></script>
 	<!-- END - - APP SCRIPTS -->
 </body>
 </html>
