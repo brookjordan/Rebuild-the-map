@@ -3,7 +3,7 @@
 
 
 angular.module( 'map' ).directive( "regions", [ regions ]);
-regionsController.$inject = [ "$scope", "value_districts", "googlemaps" ];
+regionsController.$inject = [ "$scope", "districtsService" ];
 
 
 
@@ -17,9 +17,16 @@ function regions () {
 }
 
 
-function regionsController ( $scope, value_districts ) {
+function regionsController ( $scope, districtsService ) {
 
-	$scope.districts = value_districts;
+	$scope.ds = districtsService;
+
+
+
+	setTimeout(function(){
+		console.log( districtsService );
+	}, 5000);
+
 
 }
 

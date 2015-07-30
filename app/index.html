@@ -62,19 +62,14 @@
 	<script type="text/ng-template" id="/templates/activitymap.html">
 		<div class="map" id="map-canvas"></div>
 	</script>
-	<!--
-	<ul>
-		<li ng-repeat="polygon in districtsCoords" style="padding-bottom: 50px;">
-			<span ng-repeat="coords in polygon" >| {{ coords.A }}:{{ coords.F }} |</span>
-		</li>
-	</ul>
-	-->
 
 	<!-- Regions filter -->
 	<script type="text/ng-template" id="/templates/regions.html">
 		<ul class="filterList">
 			<li class="filterList__item"
-			    ng-repeat="(districtName, districtData) in districts">
+			    ng-repeat="(districtName, districtData) in ds.list"
+				ng-class="{ 'filterList__item--active' : districtData.isActive }"
+			    ng-click="ds.toggle( $index )">
 				{{ districtName }}
 			</li>
 		</ul>
@@ -99,6 +94,9 @@
 	<!-- values	-->
 	<script src="scripts/values/districts.js"></script>
 	<script src="scripts/values/googlemaps.js"></script>
+
+	<!-- services	-->
+	<script src="scripts/services/districts.js"></script>
 
 	<!-- directives	-->
 	<script src="scripts/directives/activitymap.js"></script>

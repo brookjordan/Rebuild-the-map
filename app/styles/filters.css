@@ -42,4 +42,11 @@
 	border: 1px solid rgb( 220, 220, 220 );
 	border-radius: 50%;
 	background-color: rgb( 240, 240, 240 );
+
+	cursor: pointer;
+}
+
+.filterList__item--active {
+	border: 1px solid rgb( 240, 200, 200 );
+	background-color: rgb( 255, 150, 150 );
 }
