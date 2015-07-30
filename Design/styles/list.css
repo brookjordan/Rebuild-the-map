@@ -1,0 +1,15 @@
+.placeList {
+	width: 100%;
+	height: 100%;
+
+	overflow: scroll;
+}
+
+
+.placeList__item {
+	height: 44px;
+}
+
+.placeList__item:nth-child( 2n-1 ) {
+	background-color: rgba( 0, 0, 0, .04 );
+}
