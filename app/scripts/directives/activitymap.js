@@ -18,7 +18,6 @@ function activitymap () {
 
 
 function activitymapController ( districtsService ) {
-	//CLEAN UP
 	districtsService.init( document.getElementById('map-canvas') );
 }
 

@@ -22,12 +22,6 @@ function regionsController ( $scope, districtsService ) {
 	$scope.ds = districtsService;
 
 
-
-	setTimeout(function(){
-		console.log( districtsService );
-	}, 5000);
-
-
 }
 
 
