@@ -184,10 +184,6 @@ function districtsService ( googlemaps, value_districts ) {
 						//createMarkerYellow(results[i]);
 					}
 				}
-
-				console.log( districts );
-			} else {
-				console.log( status );
 			}
 		}
 	}

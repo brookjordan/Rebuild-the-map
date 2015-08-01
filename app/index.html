@@ -82,10 +82,13 @@
 		         class="placeList__set"
 		         ng-class="{ 'placeList__set--active': districtData.isActive }">
 				<li class="placeList__item"
+				    ng-class="{ 'placeList__item--highscore': place.rating &gt;= 4.4 }"
 				    ng-repeat="place in districtData.places"
 				    ng-show="place.rating &gt;= 4"
 				    data-stuff="{{ place.rating }}">
+				    <!-- Display the district name -->
 				    <div class="placeList__item__district">{{ districtName }}</div>
+				    <!-- Only display items with a rating of 4 or more -->
 				    <div class="placeList__item__open" ng-if="place.opening_hours.open_now">Open</div>
 				    <div class="placeList__item__open" ng-if="!place.opening_hours.open_now">Closed</div>
 				    {{ place.name }}
