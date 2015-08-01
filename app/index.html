@@ -78,8 +78,19 @@
 	<!--Reults list -->
 	<script type="text/ng-template" id="/templates/results.html">
 		<ul class="placeList">
-			<li class="placeList__item"
-		        ng-repeat="result in results"></li>
+		    <div ng-repeat="(districtName, districtData) in ds.list"
+		         class="placeList__set"
+		         ng-class="{ 'placeList__set--active': districtData.isActive }">
+				<li class="placeList__item"
+				    ng-repeat="place in districtData.places"
+				    ng-show="place.rating &gt;= 4"
+				    data-stuff="{{ place.rating }}">
+				    <div class="placeList__item__district">{{ districtName }}</div>
+				    <div class="placeList__item__open" ng-if="place.opening_hours.open_now">Open</div>
+				    <div class="placeList__item__open" ng-if="!place.opening_hours.open_now">Closed</div>
+				    {{ place.name }}
+				</li>
+             </div>
 		</ul>
 	</script>
 	<!-- </END> APP TEMPLATES -->

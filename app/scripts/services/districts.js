@@ -10,7 +10,9 @@ function districtsService ( googlemaps, value_districts ) {
 	var districtsService = {};
 
 	var districts = [];
+	var activePlaces = [];
 	var map;
+	var placesService;
 	var districtName;
 	var drawingManager;
 
@@ -22,6 +24,7 @@ function districtsService ( googlemaps, value_districts ) {
 	districtsService.hide      = hideDistrict;
 	districtsService.toggle    = toggleDistrict;
 	districtsService.list      = districts;
+
 	return districtsService;
 
 
@@ -32,6 +35,7 @@ function districtsService ( googlemaps, value_districts ) {
 			zoom: 11,
 			center: { lat: 1.317232, lng: 103.840649 },
 		});
+		placesService = new google.maps.places.PlacesService(map);
 
 		addDistricts();
 	}
@@ -40,8 +44,6 @@ function districtsService ( googlemaps, value_districts ) {
 		for ( districtName in value_districts ) {
 			addDistrict( value_districts[ districtName ][0], districtName );
 		}
-
-		console.log( districts );
 	}
 
 	function addDistrict ( districtData, districtName ) {
@@ -49,6 +51,7 @@ function districtsService ( googlemaps, value_districts ) {
 		var districtCoords = [];
 		var districtCenter = getDistrictCenter( districtData );
 		var districtRadius = getDistrictRadius( districtData, districtCenter );
+		var district;
 		var point;
 		var districtPolygon;
 		var i;
@@ -63,20 +66,25 @@ function districtsService ( googlemaps, value_districts ) {
 
 		districtPolygon = new google.maps.Polygon({
 			paths: districtCoords,
-			strokeColor: '#FF0000',
-			strokeOpacity: 0.8,
+			strokeColor: '#303F9F',
+			strokeOpacity: 0.5,
 			strokeWeight: 1,
-			fillColor: '#FF0000',
-			fillOpacity: 0.35
+			fillColor: '#303F9F',
+			fillOpacity: 0.25
 		});
 
-		districts.push({
+		district = {
 			polygon:  districtPolygon,
 			data:     districtData,
 			isActive: false,
 			center:   districtCenter,
-			radius:   districtRadius
-		});
+			radius:   districtRadius,
+			places:	  []
+		};
+
+		findPlacesInDistrict ( district );
+
+		districts.push( district );
 
 	}
 
@@ -152,6 +160,36 @@ function districtsService ( googlemaps, value_districts ) {
 		}
 
 		return maxDistance;
+	}
+
+	function findPlacesInDistrict ( district ) {
+
+		var request = {
+			location: new google.maps.LatLng( district.center.k, district.center.D ),
+			radius: '' + district.radius * 100000,
+			types: ['food']
+		};
+
+		placesService.nearbySearch(request, callback);
+
+
+
+		function callback(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					var place = results[i];
+
+					if ( google.maps.geometry.poly.containsLocation(new google.maps.LatLng( place.geometry.location.G, place.geometry.location.K ), district.polygon ) ) {
+						district.places.push( place );
+						//createMarkerYellow(results[i]);
+					}
+				}
+
+				console.log( districts );
+			} else {
+				console.log( status );
+			}
+		}
 	}
 }
 
