@@ -1,0 +1,41 @@
+{
+  "author": "Brook Jordan",
+  "name": "PROJECT_NAME",
+  "description": "PROJECT_NAME",
+  "version": "0.1.0",
+  "license": "CC-BY-NC-4.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brookjordan/PROJECT_NAME.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brookjordan/PROJECT_NAME/issues"
+  },
+  "homepage": "https://github.com/brookjordan/PROJECT_NAME",
+  "keywords": [],
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-babel": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-css-url-relative": "*",
+    "grunt-filerev": "*",
+    "grunt-newer": "*",
+    "grunt-processhtml": "*",
+    "grunt-relative-root": "*",
+    "grunt-sass": "*",
+    "grunt-usemin": "*",
+    "load-grunt-tasks": "*",
+    "grunt-contrib-cssmin": "*"
+  }
+}
