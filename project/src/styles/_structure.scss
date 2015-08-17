@@ -1,0 +1,71 @@
+html, body, .body {
+	width: 100%;
+	height: 100%;
+}
+
+.body {
+	position: relative;
+
+	overflow: hidden;
+}
+
+.headContainer {
+	position: absolute;
+	z-index: 2;
+
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 50px;
+
+	background-color: rgb( 48, 63, 159 );
+	box-shadow: 0 0 10px rgba( 0, 0, 0, .6 );
+}
+
+.mapContainer {
+    position: relative;
+    z-index: 1;
+
+	width: 100%;
+	height: 45%;
+
+	padding-top: 50px;
+
+	box-shadow: 10px 0 10px rgba( 0, 0, 0, .6 );
+
+	@media ( orientation: landscape ) {
+		float: left;
+
+		width: 50%;
+		height: 100%;
+
+		box-shadow: 0 10px 10px rgba( 0, 0, 0, .6 );
+	}
+}
+
+.listContainer {
+	position: relative;
+	z-index: 0;
+
+	width: 100%;
+	height: 55%;
+	padding-left: 60px;
+
+	@media ( orientation: landscape ) {
+		float: left;
+
+		width: 50%;
+		height: 100%;
+	}
+}
+
+.filterContainer {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	width: 60px;
+	height: 100%;
+}

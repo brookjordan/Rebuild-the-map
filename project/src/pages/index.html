@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- include:include _Meta.html --><!-- /include -->
+
+<title>Bean and Beer</title>
+
+<!-- build:css     styles/main.css -->
+	<link rel="stylesheet" href="styles/base.css">
+<!-- endbuild -->
+
+</head>
+<body>
+
+
+
+<!-- include:include _Body.html --><!-- /include -->
+
+<!-- build:js     scripts/main.js -->
+
+	<!-- Vendor -->
+	<script src="scripts/vendor/React.js"></script>
+	<!-- <script src="scripts/vendor/ReactCSSTransitionGroup.js"></script> -->
+
+	<!-- Dev functions -->
+	<!-- prod:js scripts/dev/empty.js -->
+		<script src="scripts/dev/infoLog.js"></script>
+	<!-- /prod -->
+
+	<!-- Data	-->
+	<script src="scripts/data/queryString.js"></script>
+	<script src="scripts/data/hashString.js"></script>
+	<script src="scripts/data/localStorage.js"></script>
+	<script src="scripts/data/districts.js"></script>
+	<script src="scripts/data/results.js"></script>
+	<script src="scripts/data/activeDistricts.js"></script>
+
+	<!-- components	-->
+	<script src="scripts/components/ActivityMap.js"></script>
+	<script src="scripts/components/Body.js"></script>
+	<script src="scripts/components/Header.js"></script>
+	<script src="scripts/components/FilterContainer.js"></script>
+	<script src="scripts/components/ListContainer.js"></script>
+	<script src="scripts/components/MapContainer.js"></script>
+	<script src="scripts/components/Regions.js"></script>
+	<script src="scripts/components/Region.js"></script>
+	<script src="scripts/components/Results.js"></script>
+	<script src="scripts/components/Result.js"></script>
+	<!-- END - - APP SCRIPTS -->
+
+	<!-- APP -->
+	<script src="scripts/app/setRoute.js"></script>
+	<script src="scripts/app/init.js"></script>
+
+<!-- endbuild -->
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&amp;callback=renderApp"></script>
+
+</body>
+</html>
