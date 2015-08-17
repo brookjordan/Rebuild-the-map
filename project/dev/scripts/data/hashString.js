@@ -22,8 +22,6 @@ var data_hashString = (function () {
 
 	//	FUNCTIONS	//
 	function decodeURIComponent2(item) {
-		console.log(item);
-
 		if (typeof item === 'undefined') {
 			return true;
 		} else {

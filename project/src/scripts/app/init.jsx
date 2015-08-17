@@ -5,6 +5,6 @@ function renderApp ( setBy ) {
 
 	React.render(
 		<Body />,
-		document.body
+		document.getElementById( 'app' )
 	);
 }

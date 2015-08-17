@@ -6,10 +6,10 @@ var Header = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"header",
-			{ className: "headContainer" },
+			{ className: "header" },
 			React.createElement(
 				"h1",
-				{ className: "siteTitle f-title" },
+				{ className: "header__siteTitle f-title" },
 				"Beans and Beer"
 			)
 		);

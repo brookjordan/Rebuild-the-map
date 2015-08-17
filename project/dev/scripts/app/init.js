@@ -5,6 +5,6 @@ function renderApp(setBy) {
 
 	setRoute();
 
-	React.render(React.createElement(Body, null), document.body);
+	React.render(React.createElement(Body, null), document.getElementById('app'));
 }
 //# sourceMappingURL=init.js.map
