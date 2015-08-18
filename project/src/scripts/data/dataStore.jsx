@@ -1,4 +1,7 @@
+var infoLog = require( '../dev/infoLog.jsx' );
+
 module.exports = function () {
+
 	return {
 		store,
 		retrieve,
@@ -40,4 +43,3 @@ module.exports = function () {
 	}
 
 }();
-

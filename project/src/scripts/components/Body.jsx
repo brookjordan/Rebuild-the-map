@@ -1,5 +1,5 @@
-var React = require( 'react' );
-var MapContainer = require( '../components/MapContainer.jsx' );
+var React         = require( 'react' );
+var MapContainer  = require( '../components/MapContainer.jsx' );
 var ListContainer = require( '../components/ListContainer.jsx' );
 
 module.exports = React.createClass({

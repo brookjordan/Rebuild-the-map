@@ -10,7 +10,7 @@
 module.exports = function () {
 	var messages = {};
 
-	var returnFunction = function ( _message, byLine ) {
+	function infoLog( _message, byLine ) {
 		var message = typeof _message === 'string' ?
 			_message :
 			_message[ 0 ].replace( /\$\d+/g, '' );
@@ -45,24 +45,24 @@ module.exports = function () {
 		}
 	};
 
-	returnFunction.getMessages = function () {
+	infoLog.getMessages = function () {
 		return messages;
 	}
 
-	return returnFunction;
+	return infoLog;
 
 }();
 
 function buildMessage ( message ) {
-		var builtMessage;
+	var builtMessage;
 
-		if ( typeof message === 'string' ) {
-			return message;
-		} else {
-			builtMessage = message[0];
-			for ( var i = 1; i < message.length; ++i ) {
-				builtMessage = builtMessage.replace( '$' + i, '"' + message[i] + '"' );
-			}
-			return builtMessage;
+	if ( typeof message === 'string' ) {
+		return message;
+	} else {
+		builtMessage = message[0];
+		for ( var i = 1; i < message.length; ++i ) {
+			builtMessage = builtMessage.replace( '$' + i, '"' + message[i] + '"' );
 		}
+		return builtMessage;
 	}
+}

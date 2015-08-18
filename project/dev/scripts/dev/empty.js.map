@@ -1,1 +1,0 @@
-{"version":3,"sources":["project/src/scripts/dev/empty.jsx"],"names":[],"mappings":";;;AACA,IAAI,OAAO,GAAG,SAAV,OAAO,GAAe,EAAE,CAAC;AAC7B,OAAO,CAAC,WAAW,GAAG,YAAY,EAAE,CAAC","file":"project/src/scripts/dev/empty.jsx","sourcesContent":["//\tinfoLog\nvar infoLog = function () {};\ninfoLog.getMessages = function () {};"]}

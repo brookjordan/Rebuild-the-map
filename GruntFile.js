@@ -5,13 +5,13 @@ module.exports = function(grunt) {
 			'copy:dump_dev', 'copy:images_dev',
 		]);
 	grunt.registerTask( 'dev_scripts', [
-			 'clean:scripts_dev', 'copy:scripts_dev', 'babel:dev',
+			'clean:scripts_dev', 'browserify:dev',
 		]);
 	grunt.registerTask( 'dev_styles', [
 			 'clean:styles_dev', 'sass:dev', 'autoprefixer:dev',
 		]);
 	grunt.registerTask( 'dev_html', [
-			 'processhtml:include', 'processhtml:dev', 'copy:html_dev',
+			 'processhtml:include', 'copy:html_dev',
 		]);
 
 	grunt.registerTask( 'dev', [
@@ -25,19 +25,13 @@ module.exports = function(grunt) {
 			'copy:dump_build',
 		]);
 	grunt.registerTask( 'build_scripts', [
-			'clean:scripts_build', 'copy:scripts_build', 'babel:build',
+			'clean:scripts_build', 'browserify:build', 'uglify:build',
 		]);
 	grunt.registerTask( 'build_styles', [
 			'clean:styles_build', 'sass:build', 'autoprefixer:build',
 		]);
 	grunt.registerTask( 'build_html', [
-			'processhtml:include', 'processhtml:build', 'copy:html_build',
-
-			'useminPrepare',
-			'concat:generated', 'cssmin:generated', 'uglify:generated',
-			'usemin',
-
-			'htmlmin:build',
+			'processhtml:include', 'copy:html_build', 'htmlmin:build',
 		]);
 
 	grunt.registerTask( 'build', [
@@ -228,64 +222,6 @@ module.exports = function(grunt) {
 				}],
 			},
 
-			dev: {
-				options: {
-					commentMarker: 'dev',
-				},
-
-				files: [{
-					expand: true,
-
-					cwd: 'project/temp/common/pages',
-					src: [ '**/*.html', '!**/_*', ],
-					dest: 'project/temp/common/pages',
-					ext: '.html',
-				}],
-			},
-
-			build: {
-				options: {
-					commentMarker: 'prod',
-				},
-
-				files: [{
-					expand: true,
-
-					cwd: 'project/temp/common/pages',
-					src: [ '**/*.html', '!**/_*', ],
-					dest: 'project/temp/common/pages',
-					ext: '.html',
-				}],
-			},
-
-		},
-
-
-
-
-
-
-
-		//	USEMIN
-
-		useminPrepare: {
-			html: 'project/temp/build/index.html',
-
-			options: {
-				dest: 'project/build',
-			},
-		},
-
-		usemin: {
-			html: 'project/temp/build/index.html',
-		},
-
-		concat: {
-			generated: {}
-		},
-
-		cssmin: {
-			generated: {}
 		},
 
 
@@ -376,25 +312,42 @@ module.exports = function(grunt) {
 
 
 
-//	888               888               888
-//	888               888               888
-//	888               888               888
-//	88888b.   8888b.  88888b.   .d88b.  888
-//	888 "88b     "88b 888 "88b d8P  Y8b 888
-//	888 d88P 888  888 888 d88P Y8b.     888
-//	88888P"  "Y888888 88888P"   "Y8888  888
-
-		babel: {
+//	888                                                              d8b  .d888
+//	888                                                              Y8P d88P"
+//	888                                                                  888
+//	88888b.  888d888 .d88b.  888  888  888 .d8888b   .d88b.  888d888 888 888888 888  888
+//	888 "88b 888P"  d88""88b 888  888  888 88K      d8P  Y8b 888P"   888 888    888  888
+//	888  888 888    888  888 888  888  888 "Y8888b. 88888888 888     888 888    888  888
+//	888 d88P 888    Y88..88P Y88b 888 d88P      X88 Y8b.     888     888 888    Y88b 888
+//	88888P"  888     "Y88P"   "Y8888888P"   88888P'  "Y8888  888     888 888     "Y88888
+//	                                                                                 888
+//	                                                                            Y8b d88P
+		browserify: {//                                                          "Y88P"
 			options: {
-				sourceMap:   true,
+//				alias: {},
+//				banner: '',
+//				require: [''],
+//				ignore: [''],
+//				exclude: [''],//	[{alias:path}],
+//				external: '',//		{}
+				transform: ['babelify'],//	['babelify', {}]
+//				plugin: [''],
+				browserifyOptions: {
+					debug: true,
+				},
+//				watch: true,
+//				keepAlive: true,
+//				preBundleCB: function(){},
+//				postBundleCB: function(){},
+
 			},
 
 			dev: {
 				files: [{
 					expand: true,
 
-					cwd: 'project/src/scripts',
-					src: ['**/*.jsx', ],
+					cwd: 'project/src/scripts/base',
+					src: [ '*.jsx', ],
 					dest: 'project/dev/scripts',
 					ext: '.js',
 				},],
@@ -404,8 +357,8 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 
-					cwd: 'project/src/scripts',
-					src: ['**/*.jsx', ],
+					cwd: 'project/src/scripts/base',
+					src: [ '*.jsx', ],
 					dest: 'project/temp/build/scripts',
 					ext: '.js',
 				},],
@@ -416,7 +369,6 @@ module.exports = function(grunt) {
 //                    888 d8b  .d888
 //                    888 Y8P d88P"
 //                    888     888
-//	888  888 .d888888 888  888 88888888 888
 //  888  888  .d88b.  888 888 888888 888  888
 //  888  888 d88P"88b 888 888 888    888  888
 //  888  888 888  888 888 888 888    888  888
@@ -429,20 +381,16 @@ module.exports = function(grunt) {
 		uglify: {
 			options: uglifyOptions,
 
-			generated: {
-				options: uglifyOptions,
-			},
+			build: {
+				files: [{
+					expand: true,
 
-//			build: {
-//				files: [{
-//					expand: true,
-//
-//					cwd: 'project/temp/build/scripts',
-//					src: ['**/*.js', ],
-//					dest: 'project/build/scripts',
-//					ext: '.js',
-//				},],
-//			},
+					cwd: 'project/temp/build/scripts',
+					src: ['**/*.js', ],
+					dest: 'project/build/scripts',
+					ext: '.js',
+				},],
+			},
 		},
 
 
@@ -462,7 +410,7 @@ module.exports = function(grunt) {
 				//indentedSyntax: 'false',
 				//omitSourceMapUrl: 'false',
 				//outFile: 'null',
-				outputStyle: 'nested', // nested, compact, compressed, expanded
+				outputStyle: 'compressed', // nested, compact, compressed, expanded
 				//precision: '5',
 				//sourceComments: 'false',
 				sourceMap: true,
@@ -471,6 +419,10 @@ module.exports = function(grunt) {
 			},
 
 			dev: {
+				options: {
+					outputStyle: 'nested',
+				},
+
 				files: [{
 					expand: true,
 
@@ -529,7 +481,7 @@ module.exports = function(grunt) {
 
 					cwd: 'project/temp/build/styles__sass',
 					src: '**/*.css',
-					dest: 'project/temp/build/styles',
+					dest: 'project/build/styles',
 					ext: '.css',
 				}],
 			},
@@ -713,11 +665,6 @@ module.exports = function(grunt) {
 			dev_styles: {
 				files: [ 'project/src/styles/**/*.*', ],
 				tasks: [ 'dev_styles', 'dev_html', ],
-			},
-
-			dev_scripts: {
-				files: [ 'project/src/scripts/**/*', ],
-				tasks: [ 'dev_scripts', 'dev_html', ],
 			},
 
 			dev_dump: {

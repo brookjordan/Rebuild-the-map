@@ -1,7 +1,7 @@
-var React = require( 'react' );
-var Region = require( '../components/Region.jsx' );
+var React                = require( 'react' );
+var Region               = require( '../components/Region.jsx' );
 var data_activeDistricts = require( '../data/activeDistricts.jsx' );
-var data_districts = require( '../data/districts.jsx' );
+var data_districts       = require( '../data/districts.jsx' );
 
 module.exports = React.createClass({
 

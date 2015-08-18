@@ -1,4 +1,4 @@
-var React = require( 'react' );
+var React   = require( 'react' );
 var Regions = require( '../components/Regions.jsx' );
 
 module.exports = React.createClass({

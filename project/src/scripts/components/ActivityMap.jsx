@@ -1,4 +1,4 @@
-var React = require( 'react' );
+var React      = require( 'react' );
 var displayMap = require( '../app/mapDisplay.jsx' );
 
 module.exports = React.createClass({

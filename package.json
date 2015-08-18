@@ -18,14 +18,12 @@
   "homepage": "https://github.com/brookjordan/PROJECT_NAME",
   "keywords": [],
   "devDependencies": {
-    "babelify": "^6.1.3",
+    "babelify": "*",
     "grunt": "*",
     "grunt-autoprefixer": "*",
-    "grunt-babel": "*",
+    "grunt-browserify": "*",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
-    "grunt-contrib-cssmin": "*",
     "grunt-contrib-htmlmin": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-uglify": "*",
@@ -36,7 +34,6 @@
     "grunt-processhtml": "*",
     "grunt-relative-root": "*",
     "grunt-sass": "*",
-    "grunt-usemin": "*",
     "load-grunt-tasks": "*",
     "react": "^0.13.3"
   }
