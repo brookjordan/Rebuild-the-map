@@ -7,7 +7,7 @@
 //		you can retrieve a full log
 //		of info logged so far.
 
-var infoLog = function () {
+module.exports = function () {
 	var messages = {};
 
 	var returnFunction = function ( _message, byLine ) {
@@ -51,7 +51,9 @@ var infoLog = function () {
 
 	return returnFunction;
 
-	function buildMessage ( message ) {
+}();
+
+function buildMessage ( message ) {
 		var builtMessage;
 
 		if ( typeof message === 'string' ) {
@@ -64,4 +66,3 @@ var infoLog = function () {
 			return builtMessage;
 		}
 	}
-}();

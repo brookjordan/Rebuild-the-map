@@ -1,6 +1,6 @@
 //	D: long
 //	k: lat
-var data_districts = [
+module.exports = [
 
 	{
 		id: 1,

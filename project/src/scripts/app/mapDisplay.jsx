@@ -1,14 +1,21 @@
-var displayMap = {};
+var data_activeDistricts = require( '../data/activeDistricts.jsx' );
+var data_districts = require( '../data/districts.jsx' );
 
-(function () {
+module.exports = function () {
 
-displayMap.map                  = undefined;
-displayMap.buildMap             = buildMap;
-displayMap.showDistrict         = showDistrict;
-displayMap.hideDistrict         = hideDistrict;
-displayMap.buildDistrictDisplay = buildDistrictDisplay;
-displayMap.addDistrict          = addDistrict;
-displayMap.addDistrictSection   = addDistrictSection;
+var displayMap = {
+	map:                  undefined,
+	buildMap:             buildMap,
+	showDistrict:         showDistrict,
+	hideDistrict:         hideDistrict,
+	buildDistrictDisplay: buildDistrictDisplay,
+	addDistrict:          addDistrict,
+	addDistrictSection:   addDistrictSection,
+};
+
+
+
+return displayMap;
 
 function buildMap ( elt ) {
 	try {
@@ -82,4 +89,4 @@ function addDistrictSection ( districtData ) {
 
 
 
-})();
+}();

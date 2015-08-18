@@ -1,4 +1,5 @@
-var data_hashString = function () {
+module.exports = function () {
+
 	var hashString = {};
 	var query = window.location.hash.substring(1);
 	var vars = query.split("/");
@@ -18,8 +19,6 @@ var data_hashString = function () {
 		}
 	}
 
-
-
 	return hashString;
 
 
@@ -32,4 +31,5 @@ var data_hashString = function () {
 			return decodeURIComponent( item );
 		}
 	}
+
 }();

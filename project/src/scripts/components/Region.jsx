@@ -1,4 +1,7 @@
-var Region = React.createClass({
+var React = require( 'react' );
+var displayMap = require( '../app/mapDisplay.jsx' );
+
+module.exports = React.createClass({
 
 	toggleDistrict: function () {
 		if ( this.props.activeDistricts.indexOf( this.props.index ) === -1 ) {

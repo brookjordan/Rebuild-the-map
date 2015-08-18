@@ -1,4 +1,9 @@
-var Results = React.createClass({
+var React = require( 'react' );
+var Result = require( '../components/Result.jsx' );
+var data_activeDistricts = require( '../data/activeDistricts.jsx' );
+var data_results = require( '../data/results.jsx' );
+
+module.exports = React.createClass({
 
 	sortedResults: function () {
 		var self = this;

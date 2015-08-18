@@ -1,5 +1,8 @@
 "use strict";
 
+var React = require( '../vendor/react.js' );
+var Result = require( './Result.js' );
+
 var Results = React.createClass({
 	displayName: "Results",
 

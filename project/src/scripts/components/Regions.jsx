@@ -1,4 +1,9 @@
-var Regions = React.createClass({
+var React = require( 'react' );
+var Region = require( '../components/Region.jsx' );
+var data_activeDistricts = require( '../data/activeDistricts.jsx' );
+var data_districts = require( '../data/districts.jsx' );
+
+module.exports = React.createClass({
 
 	render: function() {
 		var self = this;

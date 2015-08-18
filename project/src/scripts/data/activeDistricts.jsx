@@ -1,4 +1,6 @@
-var data_activeDistricts = [];
+var data_hashString = require( '../data/hashString.jsx' );
+
+module.exports = [];
 
 (function () {"use strict";
 

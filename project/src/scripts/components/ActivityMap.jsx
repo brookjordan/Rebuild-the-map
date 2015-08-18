@@ -1,4 +1,7 @@
-var ActivityMap = React.createClass({
+var React = require( 'react' );
+var displayMap = require( '../app/mapDisplay.jsx' );
+
+module.exports = React.createClass({
 
 	setMap: function () {
 		displayMap.buildMap( React.findDOMNode( this ) );

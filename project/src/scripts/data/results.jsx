@@ -1,3 +1,6 @@
+var DATA = require( '../data/dataStore.jsx' );
+var data_results = require( '../data/results.jsx' );
+
 //	{
 //		district: 3,
 //		name: "McDonalds",
@@ -5,12 +8,11 @@
 //		id: random36(),
 //	},
 
-var data_results = [];
-
-(function () {
-	var stringData_results = retrieveData( 'data_results', [] );
+module.exports = function () {
+	var stringData_results = DATA.retrieve( 'data_results', [] );
 	var rawData_results = [];
 	var foundIDs = [];
+	var results = [];
 
 	if ( !!stringData_results ) {
 		rawData_results = stringData_results;
@@ -22,6 +24,11 @@ var data_results = [];
 		}
 	}
 
+	return results;
+
+
+
+	//	FUNCTIONS	//
 	function sanitiseDataItem ( item ) {
 		var sanitisedItem = {
 			district: +item.district || NaN,
@@ -37,14 +44,15 @@ var data_results = [];
 				sanitisedItem.id += Math.floor( Math.random()*10 );
 			}
 
-			data_results.push( sanitisedItem );
+			results.push( sanitisedItem );
 			foundIDs.push( sanitisedItem.id );
 		}
 
 	}
 
-})();
+}();
 
+/*
 //	FUNCTIONS	//
 function addRandomResult () {
 	data_results.push({
@@ -54,6 +62,7 @@ function addRandomResult () {
 		id: (Math.random()*9e9 * Math.random()*9e9 * Math.random()*9e9).toString( 36 ),
 	});
 
-	storeData( 'data_results', data_results, 'adding a random result' );
+	DATA.store( 'data_results', data_results, 'adding a random result' );
 	renderApp( 'adding a random result' );
 }
+*/

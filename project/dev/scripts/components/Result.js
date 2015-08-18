@@ -1,6 +1,8 @@
-'use strict';
+"use strict";
 
-var Result = React.createClass({
+var React = require( '../vendor/react.js' );
+
+module.exports = React.createClass({
 	displayName: 'Result',
 
 	render: function render() {
