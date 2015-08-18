@@ -1,7 +1,7 @@
 var React   = require( 'react' );
 var Regions = require( '../components/Regions.jsx' );
 
-module.exports = React.createClass({
+var FilterContainer = React.createClass({
 
 	toggleExpanded: function () {
 		React.findDOMNode( this ).classList.toggle( "filterContainer--expanded" );
@@ -21,3 +21,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = FilterContainer;

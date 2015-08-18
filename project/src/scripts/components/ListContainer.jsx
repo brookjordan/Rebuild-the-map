@@ -2,7 +2,7 @@ var React           = require( 'react' );
 var FilterContainer = require( '../components/FilterContainer.jsx' );
 var Results         = require( '../components/Results.jsx' );
 
-module.exports = React.createClass({
+var ListContainer = React.createClass({
 
 	render: function() {
 		return (
@@ -14,3 +14,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = ListContainer;

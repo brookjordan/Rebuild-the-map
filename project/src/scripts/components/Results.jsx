@@ -3,7 +3,7 @@ var Result               = require( '../components/Result.jsx' );
 var data_activeDistricts = require( '../data/activeDistricts.jsx' );
 var data_results         = require( '../data/results.jsx' );
 
-module.exports = React.createClass({
+var Results = React.createClass({
 
 	sortedResults: function () {
 		var self = this;
@@ -65,3 +65,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = Results;

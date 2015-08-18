@@ -3,7 +3,7 @@ var Region               = require( '../components/Region.jsx' );
 var data_activeDistricts = require( '../data/activeDistricts.jsx' );
 var data_districts       = require( '../data/districts.jsx' );
 
-module.exports = React.createClass({
+var Regions = React.createClass({
 
 	render: function() {
 		var self = this;
@@ -25,3 +25,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = Regions;

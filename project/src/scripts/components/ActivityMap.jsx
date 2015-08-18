@@ -1,7 +1,7 @@
 var React      = require( 'react' );
 var mapDisplay = require( '../app/mapDisplay.jsx' );
 
-module.exports = React.createClass({
+var ActivityMap = React.createClass({
 
 	//	Builtins
 	componentDidMount: function () {
@@ -15,3 +15,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = ActivityMap;

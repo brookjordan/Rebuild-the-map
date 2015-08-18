@@ -2,7 +2,7 @@ var React         = require( 'react' );
 var MapContainer  = require( '../components/MapContainer.jsx' );
 var ListContainer = require( '../components/ListContainer.jsx' );
 
-module.exports = React.createClass({
+var Body = React.createClass({
 
 	//	Built-ins
 	render: function() {
@@ -15,3 +15,5 @@ module.exports = React.createClass({
 	},
 
 });
+
+module.exports = Body;
