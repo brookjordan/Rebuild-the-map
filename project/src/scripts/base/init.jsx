@@ -1,29 +1,16 @@
-var React           = require( 'react' );
-var Body            = require( '../components/Body.jsx' );
-var infoLog         = require( '../dev/infoLog.jsx' );
-var setRoute        = require( '../app/setRoute.jsx' );
+var renderApp       = require( '../app/renderApp.jsx' );
 var DATA            = require( '../data/dataStore.jsx' );
 var data_hashString = require( '../data/hashString.jsx' );
 var data_results    = require( '../data/results.jsx' );
-var infoLog         = require( '../dev/infoLog.jsx' );
-
-
-
 
 if ( !!data_hashString.clearLocalStorage ) {
 	DATA.destroy( 'URL request' );
 }
 
-window.renderApp = function ( setBy ) {
-	infoLog( 'App render triggered', setBy );
+window.renderApp = renderApp;
 
-	setRoute();
+renderApp( 'site initialisation' );
 
-	React.render(
-		<Body />,
-		document.getElementById( 'app' )
-	);
-}
 window.addRandomResult = function () {
 	data_results.push({
 		district: Math.ceil(Math.random()*28),

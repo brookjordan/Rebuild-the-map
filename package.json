@@ -19,6 +19,7 @@
   "keywords": [],
   "devDependencies": {
     "babelify": "*",
+    "google-maps": "*",
     "grunt": "*",
     "grunt-autoprefixer": "*",
     "grunt-browserify": "*",
@@ -35,6 +36,6 @@
     "grunt-relative-root": "*",
     "grunt-sass": "*",
     "load-grunt-tasks": "*",
-    "react": "^0.13.3"
+    "react": "*"
   }
 }
