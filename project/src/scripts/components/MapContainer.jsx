@@ -2,7 +2,7 @@ var React       = require( 'react' );
 var Header      = require( '../components/Header.jsx' );
 var ActivityMap = require( '../components/ActivityMap.jsx' );
 
-module.exports = React.createClass({
+var MapContainer = React.createClass({
 
 	render: function() {
 		return (
@@ -15,5 +15,5 @@ module.exports = React.createClass({
 
 });
 
-module.exports = ListContainer;
+module.exports = MapContainer;
 
