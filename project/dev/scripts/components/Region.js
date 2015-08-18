@@ -6,9 +6,11 @@ var Region = React.createClass({
 	toggleDistrict: function toggleDistrict() {
 		if (this.props.activeDistricts.indexOf(this.props.index) === -1) {
 			this.props.activeDistricts.push(this.props.index);
+			displayMap.showDistrict(this.props.index);
 			renderApp('toggling region ' + this.props.index + ' on');
 		} else {
 			this.props.activeDistricts.splice(this.props.activeDistricts.indexOf(this.props.index), 1);
+			displayMap.hideDistrict(this.props.index);
 			renderApp('toggling region ' + this.props.index + ' off');
 		}
 	},

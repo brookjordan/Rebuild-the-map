@@ -22,6 +22,8 @@ var data_hashString = function () {
 
 	return hashString;
 
+
+
 	//	FUNCTIONS	//
 	function decodeURIComponent2 ( item ) {
 		if ( typeof item === 'undefined' ) {
