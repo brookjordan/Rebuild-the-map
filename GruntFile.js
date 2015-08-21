@@ -19,6 +19,11 @@ module.exports = function(grunt) {
 			'dev_dump', 'dev_scripts', 'dev_styles', 'dev_html',
 		]);
 
+	//	For auto-updates on browserify
+	grunt.registerTask( 'scripts', [
+			'clean:scripts_dev', 'browserify:hot',
+		]);
+
 
 	//	BUILD TASKS
 	grunt.registerTask( 'build_dump', [
@@ -343,6 +348,22 @@ module.exports = function(grunt) {
 			},
 
 			dev: {
+				files: [{
+					expand: true,
+
+					cwd: 'project/src/scripts/base',
+					src: [ '*.jsx', ],
+					dest: 'project/dev/scripts',
+					ext: '.js',
+				},],
+			},
+
+			hot: {
+				options: {
+					watch: true,
+					keepAlive: true,
+				},
+
 				files: [{
 					expand: true,
 
