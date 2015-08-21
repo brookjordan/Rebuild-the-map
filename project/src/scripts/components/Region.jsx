@@ -23,8 +23,8 @@ var Region = React.createClass({
 		return (
 			<li className={ "filterList__district" + ( this.props.activeDistricts.indexOf( this.props.index ) > -1 ? " filterList__district--active" : "" ) }
 			    onClick={ this.toggleDistrict }>
-				<span className="filterList__district__name">{ this.props.name }</span>
-				<span className="filterList__district__index">{ this.props.index }</span>
+				<abbr className="filterList__district__name">{ this.props.name }</abbr>
+				<span className="filterList__district__index" title={ this.props.name }>{ this.props.index }</span>
 			</li>
 		);
 	},

@@ -127,19 +127,19 @@ html, body, #app, .body {
 
 @-webkit-keyframes resultBuild {
   from {
-    max-height: 0px;
-    padding: 0; }
+    height: 0px;
+    padding-top: 0; }
   to {
-    max-height: 44px;
-    padding: 15px 0; } }
+    height: 44px;
+    padding-top: 10px; } }
 
 @keyframes resultBuild {
   from {
-    max-height: 0px;
-    padding: 0; }
+    height: 0px;
+    padding-top: 0; }
   to {
-    max-height: 44px;
-    padding: 15px 0; } }
+    height: 44px;
+    padding-top: 10px; } }
 
 .listContainer {
   background-color: #f0f0f0; }
@@ -247,7 +247,20 @@ html, body, #app, .body {
     cursor: pointer;
     -webkit-transition: background-color 0.2s, color 0.2s;
             transition: background-color 0.2s, color 0.2s; }
+    .filterList__district__name {
+      display: block;
+      position: absolute;
+      top: 8px;
+      left: 0;
+      z-index: 0;
+      height: 44px;
+      line-height: 44px;
+      width: 100%;
+      padding-left: 60px;
+      text-align: left; }
     .filterList__district__index {
+      position: relative;
+      z-index: 1;
       float: left;
       width: 44px;
       margin: 8px;
@@ -257,16 +270,6 @@ html, body, #app, .body {
       background-color: rgba(255, 255, 255, 0.1);
       -webkit-transition: background-color 0.2s, color 0.2s;
               transition: background-color 0.2s, color 0.2s; }
-    .filterList__district__name {
-      display: block;
-      position: absolute;
-      top: 8px;
-      left: 0;
-      height: 44px;
-      width: 100%;
-      padding-left: 60px;
-      text-align: left;
-      line-height: 44px; }
     .filterList__district--active .filterList__district__index {
       background-color: white;
       color: #303f9f; }

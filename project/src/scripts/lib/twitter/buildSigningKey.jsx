@@ -5,6 +5,6 @@ module.exports = buildSigningKey;
 
 
 //	FUNCTIONS	//
-function buildSigningKey ( consumerSecret, _oAuthTokenSecret ) {
+function buildSigningKey ( consumerSecret, oAuthTokenSecret ) {
 	return fullURLEncode( consumerSecret ) + '&' + fullURLEncode( oAuthTokenSecret || '' );
 }
