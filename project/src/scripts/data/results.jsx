@@ -1,15 +1,14 @@
 var DATA         = require( '../data/dataStore.jsx' );
-var data_results = require( '../data/results.jsx' );
 
 //	{
 //		district: 3,
 //		name: "McDonalds",
-//		open: true,
+//		open: 2,
 //		id: random36(),
 //	},
 
 module.exports = function () {
-	var stringData_results = DATA.retrieve( 'data_results', [] );
+	var stringData_results;// = DATA.retrieve( 'data_results', [] );
 	var rawData_results = [];
 	var foundIDs = [];
 	var results = [];

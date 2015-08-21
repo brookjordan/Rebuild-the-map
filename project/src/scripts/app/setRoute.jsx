@@ -9,6 +9,7 @@ module.exports = function setRoute () {
 
 	addParam( buildParam_activeDistricts() );
 	addParam( buildParam_clearLocalStorage() );
+	addParam( buildParam_log() )
 
 	if ( false && window.history && window.history.replaceState ) {
 		history.replaceState( null, null, location.origin + location.pathname + location.search + paramsString );
@@ -38,6 +39,13 @@ module.exports = function setRoute () {
 	function buildParam_clearLocalStorage () {
 		if ( data_hashString.clearLocalStorage ) {
 			return 'clearLocalStorage';
+		}
+
+		return '';
+	}
+	function buildParam_log () {
+		if ( data_hashString.log ) {
+			return 'log';
 		}
 
 		return '';

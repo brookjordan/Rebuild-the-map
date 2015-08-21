@@ -26,7 +26,7 @@ var Results = React.createClass({
 			})
 
 			.sort(function( a, b ){
-				if ( a.open === b.open ) {
+				if ( a.open === b.open || ( a.open > 0 && b.open > 0 ) ) {
 					if ( a.name === b.name ) {
 						return a.district > b.district
 							? 1 : -1;

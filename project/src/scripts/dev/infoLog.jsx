@@ -6,8 +6,14 @@
 //	By calling infoLog.getMessages()
 //		you can retrieve a full log
 //		of info logged so far.
+var data_hashString = require( '../data/hashString.jsx' );
 
 module.exports = function () {
+
+	if ( !data_hashString.log ) {
+		return function () {};
+	}
+
 	var messages = {};
 
 	function infoLog( _message, byLine ) {

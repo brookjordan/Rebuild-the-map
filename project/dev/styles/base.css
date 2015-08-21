@@ -162,14 +162,22 @@ html, body, #app, .body {
             animation-name: resultBuild;
     -webkit-animation-duration: .2s;
             animation-duration: .2s; }
-    .placeList__item--closed {
+    .placeList__item--0 {
       color: #999; }
-      .placeList__item--closed .placeList__item__open:after {
+      .placeList__item--0 .placeList__item__open:after {
         content: 'Closed'; }
-    .placeList__item--open {
+    .placeList__item--2 {
       background: #FFF;
       -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
               box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); }
+      .placeList__item--2 .placeList__item__open:after {
+        content: 'Open'; }
+    .placeList__item--1 {
+      background: #F9F9F9;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
+      .placeList__item--1 .placeList__item__open:after {
+        content: 'Call for opening times'; }
     .placeList__item--highscore {
       background: #DFD; }
     .placeList__item__open {
