@@ -1,19 +1,18 @@
-var React       = require( 'react' );
-var Header      = require( '../components/Header.jsx' );
-var ActivityMap = require( '../components/ActivityMap.jsx' );
+import React       from 'react';
+import Header      from '../components/Header.jsx';
+import ActivityMap from '../components/ActivityMap.jsx';
 
-var MapContainer = React.createClass({
 
-	render: function() {
+
+export default class MapContainer extends React.Component {
+
+	render() {
 		return (
 			<div className="mapContainer">
 				<Header/>
 				<ActivityMap/>
 			</div>
 		);
-	},
+	}
 
-});
-
-module.exports = MapContainer;
-
+}

@@ -1,13 +1,15 @@
-var React   = require( 'react' );
-var Regions = require( '../components/Regions.jsx' );
+import React from 'react';
+import Regions from '../components/Regions.jsx';
 
-var FilterContainer = React.createClass({
 
-	toggleExpanded: function () {
+
+export default class FilterContainer extends React.Component {
+
+	toggleExpanded () {
 		React.findDOMNode( this ).classList.toggle( "filterContainer--expanded" );
-	},
+	}
 
-	render: function() {
+	render () {
 		return (
 			<div className="filterContainer">
 				<h2 className="filterTitle f-tiny" onClick={ this.toggleExpanded }>
@@ -18,8 +20,6 @@ var FilterContainer = React.createClass({
 				</div>
 			</div>
 		);
-	},
+	}
 
-});
-
-module.exports = FilterContainer;
+}

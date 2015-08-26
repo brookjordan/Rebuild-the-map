@@ -1,11 +1,13 @@
-var React                = require( 'react' );
-var Region               = require( '../components/Region.jsx' );
-var data_activeDistricts = require( '../data/activeDistricts.jsx' );
-var data_districts       = require( '../data/districts.jsx' );
+import React                from 'react';
+import Region               from '../components/Region.jsx';
+import data_activeDistricts from '../data/activeDistricts.jsx';
+import data_districts       from '../data/districts.jsx';
 
-var Regions = React.createClass({
 
-	render: function() {
+
+export default class Regions extends React.Component {
+
+	render () {
 		var self = this;
 
 		return (
@@ -22,8 +24,6 @@ var Regions = React.createClass({
 				</ul>
 			</div>
 		);
-	},
+	}
 
-});
-
-module.exports = Regions;
+}

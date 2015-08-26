@@ -1,32 +1,36 @@
-var React = require( 'react' );
+import React from 'react';
 
-var Result = React.createClass({
+export default class Result extends React.Component {
 
-	getName: function () {
+	constructor ( props ) {
+		super( props );
+
+		this.state = {
+			name: '',
+		};
+
+		self = this;
+	}
+
+	getName () {
 		var request = new XMLHttpRequest();
-		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + this.props.place;
-		request.onreadystatechange = function ( e ) {
+		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + self.props.place;
+		request.addEventListener( 'readystatechange', function ( e ) {
 			var DONE = this.DONE || 4;
 			if (this.readyState === DONE){
 				console.log(this);
 			}
-		};
+		}, false );
 		request.open('GET', requestURL, true);
 		request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-		request.send(null);
-	},
+		//request.send(null);
+	}
 
-	updateName: function () {
+	updateName () {
 		//name
-	},
+	}
 
-	getInitialState: function () {
-		return {
-			name: '',
-		};
-	},
-
-	render: function() {
+	render () {
 		return (
 			<li className={ 'placeList__item placeList__item--' + this.props.open }
 			    onMouseEnter={ this.getName }
@@ -41,8 +45,20 @@ var Result = React.createClass({
 				{ this.state.name || this.props.name }
 			</li>
 		);
-	},
+	}
 
-});
+}
 
-module.exports = Result;
+Result.defaultProps = {
+	district:	1,
+	name:	    '',
+	open:	    0,
+	place:	    '',
+};
+
+Result.propTypes = {
+	district:	React.PropTypes.number,
+	name:	    React.PropTypes.string,
+	open:	    React.PropTypes.number,
+	place:	    React.PropTypes.string,
+};

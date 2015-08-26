@@ -1,18 +1,18 @@
-var React           = require( 'react' );
-var FilterContainer = require( '../components/FilterContainer.jsx' );
-var Results         = require( '../components/Results.jsx' );
+import React           from 'react';
+import FilterContainer from '../components/FilterContainer.jsx';
+import Results         from '../components/Results.jsx';
 
-var ListContainer = React.createClass({
 
-	render: function() {
+
+export default class ListContainer extends React.Component {
+
+	render () {
 		return (
 			<div className="listContainer">
 				<FilterContainer />
 				<Results />
 			</div>
 		);
-	},
+	}
 
-});
-
-module.exports = ListContainer;
+}

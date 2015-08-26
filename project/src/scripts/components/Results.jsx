@@ -1,11 +1,13 @@
-var React                = require( 'react' );
-var Result               = require( '../components/Result.jsx' );
-var data_activeDistricts = require( '../data/activeDistricts.jsx' );
-var data_results         = require( '../data/results.jsx' );
+import React                from 'react';
+import Result               from '../components/Result.jsx';
+import data_activeDistricts from '../data/activeDistricts.jsx';
+import data_results         from '../data/results.jsx';
 
-var Results = React.createClass({
 
-	sortedResults: function () {
+
+export default class Results extends React.Component {
+
+	sortedResults () {
 		var self = this;
 
 		return data_results
@@ -52,19 +54,13 @@ var Results = React.createClass({
 					        key={ result.id }/>
 				)
 			});
-	},
+	}
 
-
-
-	//	Built-ins
-	render: function() {
+	render () {
 		return (
 			<ul className="placeList">
 				{ this.sortedResults() }
 			</ul>
 		);
-	},
-
-});
-
-module.exports = Results;
+	}
+}

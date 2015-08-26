@@ -1,10 +1,12 @@
-var React      = require( 'react' );
-var renderApp  = require( '../app/renderApp.jsx' );
-var displayMap = require( '../app/mapDisplay.jsx' );
+import React      from 'react';
+import renderApp  from '../app/renderApp.jsx';
+import displayMap from '../app/mapDisplay.jsx';
 
-var Region = React.createClass({
 
-	toggleDistrict: function () {
+
+export default class Region extends React.Component {
+
+	toggleDistrict () {
 		if ( this.props.activeDistricts.indexOf( this.props.index ) === -1 ) {
 			this.props.activeDistricts.push( this.props.index );
 			displayMap.showDistrict( this.props.index );
@@ -14,12 +16,9 @@ var Region = React.createClass({
 			displayMap.hideDistrict( this.props.index );
 			window.renderApp( 'toggling region ' + this.props.index + ' off' );
 		}
-	},
+	}
 
-
-
-	//	Builtins
-	render: function() {
+	render () {
 		return (
 			<li className={ "filterList__district" + ( this.props.activeDistricts.indexOf( this.props.index ) > -1 ? " filterList__district--active" : "" ) }
 			    onClick={ this.toggleDistrict }>
@@ -27,8 +26,6 @@ var Region = React.createClass({
 				<span className="filterList__district__index" title={ this.props.name }>{ this.props.index }</span>
 			</li>
 		);
-	},
+	}
 
-});
-
-module.exports = Region;
+}

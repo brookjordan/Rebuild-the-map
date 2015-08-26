@@ -1,19 +1,18 @@
-var React      = require( 'react' );
-var mapDisplay = require( '../app/mapDisplay.jsx' );
+import React from 'react';
+import mapDisplay from '../app/mapDisplay.jsx';
 
-var ActivityMap = React.createClass({
 
-	//	Builtins
-	componentDidMount: function () {
+
+export default class ActivityMap extends React.Component {
+
+	componentDidMount () {
 		mapDisplay.buildMap( React.findDOMNode( this ) );
-	},
+	}
 
-	render: function() {
+	render () {
 		return (
 			<div className="map"></div>
 		);
-	},
+	}
 
-});
-
-module.exports = ActivityMap;
+}
