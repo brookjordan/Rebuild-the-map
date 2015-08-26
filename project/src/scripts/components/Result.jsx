@@ -4,7 +4,7 @@ var Result = React.createClass({
 
 	getName: function () {
 		var request = new XMLHttpRequest();
-		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + 'ChIJ44DHaZEZ2jERt3uwXXZlolc';//this.props.key
+		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + this.props.place;
 		request.onreadystatechange = function ( e ) {
 			var DONE = this.DONE || 4;
 			if (this.readyState === DONE){
@@ -29,7 +29,7 @@ var Result = React.createClass({
 	render: function() {
 		return (
 			<li className={ 'placeList__item placeList__item--' + this.props.open }
-			    //onMouseEnter={ this.getName }
+			    onMouseEnter={ this.getName }
 			    >
 
 				<div className="placeList__item__district">

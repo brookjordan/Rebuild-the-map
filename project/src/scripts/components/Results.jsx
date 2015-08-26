@@ -48,6 +48,7 @@ var Results = React.createClass({
 					<Result district={ result.district }
 					        name={ result.name }
 					        open={ result.open }
+					        place={ result.id }
 					        key={ result.id }/>
 				)
 			});
