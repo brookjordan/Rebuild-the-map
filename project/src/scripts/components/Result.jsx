@@ -8,13 +8,11 @@ export default class Result extends React.Component {
 		this.state = {
 			name: '',
 		};
-
-		self = this;
 	}
 
 	getName () {
 		var request = new XMLHttpRequest();
-		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + self.props.place;
+		var requestURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE&placeid=' + this.props.place;
 		request.addEventListener( 'readystatechange', function ( e ) {
 			var DONE = this.DONE || 4;
 			if (this.readyState === DONE){
@@ -33,7 +31,7 @@ export default class Result extends React.Component {
 	render () {
 		return (
 			<li className={ 'placeList__item placeList__item--' + this.props.open }
-			    onMouseEnter={ this.getName }
+			    onMouseEnter={ this.getName.bind(this) }
 			    >
 
 				<div className="placeList__item__district">

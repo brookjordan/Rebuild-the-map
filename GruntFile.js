@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 			'copy:dump_dev', 'copy:images_dev',
 		]);
 	grunt.registerTask( 'dev_scripts', [
-			'clean:scripts_dev', 'browserify:dev',
+			'clean:scripts_dev', 'browserify:dev', 'exorcise:dev',
 		]);
 	grunt.registerTask( 'dev_styles', [
 			 'clean:styles_dev', 'sass:dev', 'autoprefixer:dev',
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 			'copy:dump_build',
 		]);
 	grunt.registerTask( 'build_scripts', [
-			'clean:scripts_build', 'browserify:build', 'uglify:build',
+			'clean:scripts_build', 'browserify:build', 'exorcise:build', 'uglify:build',
 		]);
 	grunt.registerTask( 'build_styles', [
 			'clean:styles_build', 'sass:build', 'autoprefixer:build',
@@ -108,8 +108,8 @@ module.exports = function(grunt) {
 		},//	Boolean or Object: [View all options here](https://github.com/mishoo/UglifyJS2#beautifier-options)
 		expression: false,//	for parsing JSON
 		report: 'min',//	'min' 'gzip'
-		sourceMap: false,
-		sourceMapName: function ( uglifyDestination ) { var sourceMapPath = undefined; return sourceMapPath; },
+		sourceMap: true,
+//		sourceMapName: function ( uglifyDestination ) { var sourceMapPath = undefined; return sourceMapPath; },
 		sourceMapIn: undefined,//	The location of an input source map from an earlier compilation
 		sourceMapIncludeSources: false,
 		sourceMapRoot: false,
@@ -385,6 +385,66 @@ module.exports = function(grunt) {
 				},],
 			},
 		},
+
+
+
+//	                                           d8b          888
+//	                                           Y8P          888
+//	                                                        888
+//	 .d88b.  888  888  .d88b.  888d888 .d8888b 888 .d8888b  888888
+//	d8P  Y8b `Y8bd8P' d88""88b 888P"  d88P"    888 88K      888
+//	88888888   X88K   888  888 888    888      888 "Y8888b. 888
+//	Y8b.     .d8""8b. Y88..88P 888    Y88b.    888      X88 Y88b.
+//	 "Y8888  888  888  "Y88P"  888     "Y8888P 888  88888P'  "Y888
+
+		exorcise: {
+			options: {
+//				strict: false,
+//				bundleDest: 'path',
+//				url: '',
+//				root: '',
+//				base: '',
+			},
+
+			dev: {
+				files: [{
+					expand: true,
+
+					cwd: 'project/dev/scripts',
+					src: [ '*.js', ],
+					dest: 'project/dev/scripts',
+					ext: '.js.map',
+				},],
+			},
+
+			build: {
+				files: [{
+					expand: true,
+
+					cwd: 'project/temp/build/scripts',
+					src: [ '*.js', ],
+					dest: 'project/temp/build/scripts',
+					ext: '.js.map',
+				},],
+			},
+		},
+//		extract_sourcemap: {
+//			options: {
+//				'removeSourcesContent': true,
+//			},
+//
+//			dev: {
+//				files: [{
+//					expand: true,
+//
+//					cwd: 'project/dev/scripts',
+//					src: [ '*.js', ],
+//					dest: 'project/dev',
+//					ext: 'scripts',
+//				},],
+//			},
+//		},
+
 
 
 //                    888 d8b  .d888
@@ -686,6 +746,11 @@ module.exports = function(grunt) {
 			dev_styles: {
 				files: [ 'project/src/styles/**/*.*', ],
 				tasks: [ 'dev_styles', 'dev_html', ],
+			},
+
+			dev_scripts: {
+				files: [ 'project/src/scripts/**/*.{js,jsx}', ],
+				tasks: [ 'dev_scripts', 'dev_html', ],
 			},
 
 			dev_dump: {

@@ -8,8 +8,6 @@ import data_results         from '../data/results.jsx';
 export default class Results extends React.Component {
 
 	sortedResults () {
-		var self = this;
-
 		return data_results
 
 			//	Only need items from the correct districts

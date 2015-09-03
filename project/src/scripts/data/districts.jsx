@@ -1,6 +1,6 @@
 //	D: long
 //	k: lat
-module.exports = [
+var districts = [
 
 	{
 		"id": 1,
@@ -328,3 +328,7 @@ module.exports = [
 		},],
 	},
 ];
+
+
+
+export default districts

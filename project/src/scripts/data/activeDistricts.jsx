@@ -1,19 +1,20 @@
-var data_hashString = require( '../data/hashString.jsx' );
+import data_hashString from '../data/hashString.jsx';
 
-module.exports = function () {"use strict";
 
-	var rawdata_activeDistricts = !!data_hashString.activeDistricts ?
-		data_hashString.activeDistricts.split( ',' ) :
-		[];
 
-	var activeDistricts = [];
+var data_activeDistricts = [];
+var rawdata_activeDistricts = !!data_hashString.activeDistricts ?
+	data_hashString.activeDistricts.split( ',' ) :
+	[];
 
-	for ( var i = 0; i < rawdata_activeDistricts.length; ++i ) {
-		if ( +rawdata_activeDistricts[i] && activeDistricts.indexOf( +rawdata_activeDistricts[i] ) === -1 ) {
-			activeDistricts.push( +rawdata_activeDistricts[i] );
-		}
+
+
+for ( var i = 0; i < rawdata_activeDistricts.length; ++i ) {
+	if ( +rawdata_activeDistricts[i] && data_activeDistricts.indexOf( +rawdata_activeDistricts[i] ) === -1 ) {
+		data_activeDistricts.push( +rawdata_activeDistricts[i] );
 	}
+}
 
-	return activeDistricts;
 
-}();
+
+export default data_activeDistricts;

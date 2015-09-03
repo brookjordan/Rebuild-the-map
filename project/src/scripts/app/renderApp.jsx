@@ -1,9 +1,9 @@
-var React           = require( 'react' );
-var Body            = require( '../components/Body.jsx' );
-var infoLog         = require( '../dev/infoLog.jsx' );
-var setRoute        = require( '../app/setRoute.jsx' );
+import React    from 'react';
+import Body     from '../components/Body.jsx';
+import infoLog  from '../dev/infoLog.jsx';
+import setRoute from '../app/setRoute.jsx';
 
-function renderApp ( setBy ) {
+export default function renderApp ( setBy ) {
 	infoLog( 'App render triggered', setBy );
 
 	setRoute();
@@ -12,7 +12,4 @@ function renderApp ( setBy ) {
 		<Body />,
 		document.getElementById( 'app' )
 	);
-};
-
-window['renderApp'] = renderApp;
-module.exports      = renderApp;
+}

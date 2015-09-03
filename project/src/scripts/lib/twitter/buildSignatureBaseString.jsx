@@ -1,4 +1,6 @@
-var fullURLEncode = require( './fullURLEncode.jsx' );
+import fullURLEncode from './fullURLEncode.jsx';
+
+
 
 var baseURL = 'https://api.twitter.com';
 var method = 'POST';
@@ -6,12 +8,9 @@ var parameters = [];
 var parameterString = '';
 var signatureBaseString = '';
 
-module.exports = buildSignaturebaseString;
 
 
-
-//	FUNCTONS	//
-function buildSignaturebaseString ( _method, _apiPath, _parameters ) {
+export default function buildSignaturebaseString ( _method, _apiPath, _parameters ) {
 
 	cacheMethod( _method );
 	cacheBaseURLAndParameters( _apiPath );
@@ -24,6 +23,8 @@ function buildSignaturebaseString ( _method, _apiPath, _parameters ) {
 	return signatureBaseString;
 
 }
+
+
 
 function cacheMethod ( _method ) {
 

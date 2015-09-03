@@ -1,7 +1,7 @@
-var data_activeDistricts = require( '../data/activeDistricts.jsx' );
-var data_hashString      = require( '../data/hashString.jsx' );
+import data_activeDistricts from '../data/activeDistricts.jsx';
+import data_hashString      from '../data/hashString.jsx';
 
-module.exports = function setRoute () {
+export default function setRoute () {
 	//	location.origin + location.pathname
 
 	var params = [];

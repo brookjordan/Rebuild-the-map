@@ -1,10 +1,5 @@
-var fullURLEncode = require( './fullURLEncode.jsx' );
+import fullURLEncode from './fullURLEncode.jsx';
 
-module.exports = buildSigningKey;
-
-
-
-//	FUNCTIONS	//
-function buildSigningKey ( consumerSecret, oAuthTokenSecret ) {
+export default function buildSigningKey ( consumerSecret, oAuthTokenSecret ) {
 	return fullURLEncode( consumerSecret ) + '&' + fullURLEncode( oAuthTokenSecret || '' );
 }

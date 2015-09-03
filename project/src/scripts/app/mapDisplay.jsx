@@ -1,8 +1,9 @@
-var data_activeDistricts = require( '../data/activeDistricts.jsx' );
-var data_districts       = require( '../data/districts.jsx' );
-var GoogleMapsLoader     = require('google-maps');
-var data_results         = require( '../data/results.jsx' );
-var infoLog              = require( '../dev/infoLog.jsx' );
+import data_activeDistricts from '../data/activeDistricts.jsx';
+import data_districts       from '../data/districts.jsx';
+import GoogleMapsLoader     from'google-maps';
+import data_results         from '../data/results.jsx';
+import infoLog              from '../dev/infoLog.jsx';
+import renderApp            from '../app/renderApp.jsx';
 
 GoogleMapsLoader.KEY = 'AIzaSyBDQ1m2bWBeUcsPfkAjddv4DEInbkCzjaE';
 GoogleMapsLoader.VERSION = '3.14';
@@ -24,12 +25,19 @@ var mapDisplay = {
 var google;
 
 
+
 (function getGoogle () {
 	GoogleMapsLoader.load(function( _google ){
 		google = _google;
 		mapDisplay.bounds = new google.maps.LatLngBounds();
 	});
 })();
+
+
+
+export default mapDisplay;
+
+
 
 function buildMap ( elt ) {
 	GoogleMapsLoader.load(function( _google ){
@@ -141,5 +149,3 @@ function decodePath ( pathURI ) {
 		[] :
 		google.maps.geometry.encoding.decodePath( pathURI );
 }
-
-module.exports = mapDisplay;

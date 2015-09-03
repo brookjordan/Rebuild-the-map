@@ -1,5 +1,11 @@
-var buildSignature = require( './buildSignature.jsx' );
+import buildSignature from './buildSignature.jsx';
 
-module.exports = {
+
+
+var twitterObject = {
 	buildSignature
 };
+
+
+
+export default twitterObject;

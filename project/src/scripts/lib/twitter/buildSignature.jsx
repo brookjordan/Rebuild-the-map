@@ -1,8 +1,8 @@
-var buildSignatureBaseString = require( './buildSignatureBaseString.jsx' );
-var buildSigningKey = require( './buildSigningKey.jsx' );
-var hmacsha1 = require( 'hmacsha1' );
+import buildSignatureBaseString from './buildSignatureBaseString.jsx';
+import buildSigningKey          from './buildSigningKey.jsx';
+import hmacsha1                 from 'hmacsha1';
 
-function buildSignature ( method, apiURL, parameters, consumerSecret, oAuthTokenSecret ) {
+export default function buildSignature ( method, apiURL, parameters, consumerSecret, oAuthTokenSecret ) {
 
 	var baseString = buildSignatureBaseString( method, apiURL, parameters );
 	var signingKey = buildSigningKey( consumerSecret, oAuthTokenSecret );
@@ -13,5 +13,3 @@ function buildSignature ( method, apiURL, parameters, consumerSecret, oAuthToken
 	return hmacsha1( signingKey, baseString );
 
 }
-
-module.exports = buildSignature;

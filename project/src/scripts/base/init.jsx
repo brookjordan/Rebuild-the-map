@@ -1,15 +1,13 @@
-var renderApp       = require( '../app/renderApp.jsx' );
-var DATA            = require( '../data/dataStore.jsx' );
-var data_hashString = require( '../data/hashString.jsx' );
-var twitter         = require( '../lib/twitter/twitter.jsx' );
+import renderApp       from '../app/renderApp.jsx';
+import DATA            from '../data/dataStore.jsx';
+import data_hashString from '../data/hashString.jsx';
+import twitter         from '../lib/twitter/twitter.jsx';
 
 
 
 if ( !!data_hashString.clearLocalStorage ) {
 	DATA.destroyAll( 'URL request' );
 }
-
-window.renderApp = renderApp;
 
 renderApp( 'site initialisation' );
 

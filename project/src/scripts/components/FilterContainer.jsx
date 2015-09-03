@@ -12,7 +12,7 @@ export default class FilterContainer extends React.Component {
 	render () {
 		return (
 			<div className="filterContainer">
-				<h2 className="filterTitle f-tiny" onClick={ this.toggleExpanded }>
+				<h2 className="filterTitle f-tiny" onClick={ this.toggleExpanded.bind(this) }>
 					Filter
 				</h2>
 				<div className="filterListContainer">

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/brookjordan/PROJECT_NAME",
   "keywords": [],
   "devDependencies": {
+    "babel-core": "*",
     "babelify": "*",
     "google-maps": "*",
     "grunt": "*",
@@ -30,12 +31,13 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-css-url-relative": "*",
+    "grunt-exorcise": "*",
     "grunt-filerev": "*",
     "grunt-newer": "*",
     "grunt-processhtml": "*",
     "grunt-relative-root": "*",
     "grunt-sass": "*",
-    "hmacsha1": "^1.0.0",
+    "hmacsha1": "*",
     "load-grunt-tasks": "*",
     "react": "*"
   }

@@ -21,12 +21,9 @@ var safeChars = [
 	'-', '.', '_', '~',
 ];
 
-module.exports = fullURLEncode;
 
 
-
-//	FUNCTIONS	//
-function fullURLEncode ( stringToEncode ) {
+export default function fullURLEncode ( stringToEncode ) {
 	var encodedString = '';
 	var i;
 
